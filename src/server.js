@@ -1,3 +1,11 @@
+/**
+ * @file Token-authenticated local HTTP server for the Spin the Web assistant.
+ * Listens on 127.0.0.1 and forwards chat requests to the local Ollama model,
+ * returning proposals only; it never applies changes.
+ * 
+ * @author Copilot
+ * @license Apache-2.0
+ */
 import { createServer } from "node:http";
 import { timingSafeEqual } from "node:crypto";
 import { generate } from "./assistant.js";

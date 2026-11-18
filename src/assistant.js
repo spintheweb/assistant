@@ -1,3 +1,10 @@
+/**
+ * @file Assistant core: builds the WBOL/WBLL system prompt, calls the local
+ * Ollama chat API with a JSON schema, and validates the returned proposal.
+ * 
+ * @author Copilot
+ * @license Apache-2.0
+ */
 const fields = ["name", "slug", "keywords", "description", "layout", "query"];
 
 const responseFormat = {
