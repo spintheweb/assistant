@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { generate } from "../src/assistant.js";
+import { generate } from "../assistant.js";
 
 test("sends context only to local Ollama and returns a structured proposal", async () => {
 	const result = await generate({

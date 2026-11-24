@@ -23,8 +23,29 @@ $env:STW_ASSISTANT_MODEL = 'qwen2.5-coder:7b'
 npm start
 ```
 
-Set `ALLOW_DEV=true` and the same token in Webspinner's environment or `.env`,
-then start Webspinner and sign in as a developer. Never use a cloud model or
-an Ollama instance that has cloud features enabled for this integration.
+Set `ALLOW_DEV=true`, `ALLOW_AI=true`, and the same token in Webspinner's
+environment or `.env`, then start Webspinner and sign in as a developer. Never
+use a cloud model or an Ollama instance that has cloud features enabled for
+this integration.
+
+### Bash launcher
+
+With the assistant and Webspinner repositories side by side, `.data/start.sh`
+reads the token and optional assistant port from Webspinner's `.env`, starts
+Ollama with cloud features disabled, and starts the assistant. Install the
+desired model beforehand. The launcher stops its Ollama process on exit and
+does not start Webspinner; use Run and Debug as usual. Stop any existing Ollama
+instance first: the launcher cannot verify how it was configured.
+
+On Windows, run from PowerShell using Git Bash:
+
+```powershell
+& 'C:\Program Files\Git\bin\bash.exe' 'D:\Projects\spintheweb\assistant\.data\start.sh'
+```
+
+Keep the window open and press Ctrl+C to stop both services. If Run and Debug
+overrides the token or port in its environment, those values must match the
+ones in `.env`. Set `STW_ASSISTANT_MODEL` before starting the launcher to use a
+model other than `qwen2.5-coder:7b`.
 
 Run `npm test` for service tests.
